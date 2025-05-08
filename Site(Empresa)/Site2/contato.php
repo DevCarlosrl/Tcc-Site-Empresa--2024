@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+                    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet" />
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <title>Contato</title>
+    <style>
+ .status-circle {
+                            position: absolute;
+                            right: 0;
+                            bottom: 0.3rem;
+                            font-size: 0.5rem;
+                            border-radius: 50%;
+                            width: 0.8rem;
+                            height: 0.8rem;
+                            background-color: red; /* Padrão para não logado */
+                        }
+
+                        .status-circle.logged-in {
+                            background-color: var(--green); /* Verde quando logado */
+                        }
+                    
+                :root {
+                --primary: #eeeeee;
+                --secondary: #227c70;
+                --green: #82cd47;
+                --secondary-light: rgb(34, 124, 112, 0.2);
+                --secondary-light-2: rgb(127, 183, 126, 0.1);
+                --white: #fff;
+                --black: #393e46;
+
+                --shadow: 0px 2px 8px 0px var(--secondary-light);
+                }
+                .profile-dropdown {
+                            margin-right: -40px;
+                            position: relative;
+                            width: fit-content;
+                        }
+
+                .profile-dropdown-btn {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding-right: 1rem;
+                font-size: 0.9rem;
+                font-weight: 500;
+                width: 150px;
+                border-radius: 50px;
+                color: var(--primary);
+                /* background-color: white;
+                box-shadow: var(--shadow); */
+
+                cursor: pointer;
+                border: 1px solid var(--secondary);
+                transition: box-shadow 0.2s ease-in, background-color 0.2s ease-in,
+                    border 0.3s;
+                }
+
+                .profile-dropdown-btn:hover {
+                background-color: var(--secondary-light-2);
+                box-shadow: var(--shadow);
+                }
+
+                .profile-img {
+                position: relative;
+                width: 3rem;
+                height: 3rem;
+                border-radius: 50%;
+                background-color: white;
+                background-size: cover;
+                }
+
+                .profile-img i {
+                position: absolute;
+                right: 0;
+                bottom: 0.3rem;
+                font-size: 0.5rem;
+                color: var(--green);
+                }
+
+                .profile-dropdown-btn span {
+                margin: 0 0.5rem;
+                margin-right: 0;
+                }
+
+                .profile-dropdown-list {
+                            position: absolute;
+                            top: 68px;
+                            width: 220px;
+                            right: 0;
+                            background-color: var(--white);
+                            border-radius: 10px;
+                            max-height: 0;
+                            overflow: hidden;
+                            box-shadow: var(--shadow);
+                            transition: max-height 0.5s;
+                        }
+
+                .profile-dropdown-list hr {
+                border: 0.5px solid var(--primary);
+                }
+                .profile-dropdown-list.active {
+                            max-height: 500px;
+                        }
+
+                .profile-dropdown-list-item {
+                padding: 0.5rem 0rem 0.5rem 1rem;
+                transition: background-color 0.2s ease-in, padding-left 0.2s;
+                }
+
+                .profile-dropdown-list-item a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                font-size: 0.9rem;
+                font-weight: 500;
+                color: var(--black);
+                }
+
+                .profile-dropdown-list-item a i {
+                margin-right: 0.8rem;
+                font-size: 1.1rem;
+                width: 2.3rem;
+                height: 2.3rem;
+                background-color: var(--secondary);
+                color: var(--white);
+                line-height: 2.3rem;
+                text-align: center;
+                margin-right: 1rem;
+                border-radius: 50%;
+                transition: margin-right 0.3s;
+                }
+
+                .profile-dropdown-list-item:hover {
+                padding-left: 1.5rem;
+                background-color: var(--secondary-light);
+                }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-width: 100%;
+            background-color: transparent;
+        }
+
+        .form-container {
+            width: 100%;
+            margin-top: 100px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            margin-left: 320px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 70%;
+            padding: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-group button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            background-color: #d9a441;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #b58329;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+<header class="header">
+      <nav>
+        <div class="nav__bar">
+          <div class="logo nav__logo"><img src="assets/img/8.png" alt="logo" /></div>
+          <div class="nav__menu__btn" id="menu-btn">
+            <i class="ri-menu-3-line"></i>
+          </div>
+        </div>
+        <ul class="nav__links" id="nav-links">
+          <li><a href="index.php">Início</a></li>
+          <li><a href="sobre.php">Sobre</a></li>
+          <li><a href="equipe.php">Equipe</a></li>
+          <li><a href="#">Contato</a></li>
+          <ul>
+          <div class="profile-dropdown">
+                        <div onclick="toggle()" class="profile-dropdown-btn">
+                            <div class="profile-img">
+                                <i class="status-circle <?php echo isset($_SESSION['nome']) ? 'logged-in' : ''; ?>"></i>
+                            </div>
+                            <span>
+                                <?php 
+                                echo isset($_SESSION['nome']) ? 'Logado' : 'Login'; 
+                                ?>
+                                <i class="fa-solid fa-angle-down"></i>
+                            </span>
+                        </div>
+                            <ul class="profile-dropdown-list">
+                                <?php if (isset($_SESSION['nome'])): ?>
+                                    <li class="profile-dropdown-list-item">
+                                        <a href="<?php echo ($_SESSION['nivel'] === 'adm') ? 'perfil.php' : 'editarperfil.php'; ?>">
+                                            <i class="fa-regular fa-user"></i>
+                                            Editar Perfil
+                                        </a>
+                                        </li>
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="#">
+                                                <i class="fa-regular fa-envelope"></i>
+                                                Caixa de entrada
+                                            </a>
+                                        </li>
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="#">
+                                                <i class="fa-solid fa-chart-line"></i>
+                                                Análise
+                                            </a>
+                                        </li>
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="#">
+                                                <i class="fa-solid fa-sliders"></i>
+                                                Configurações
+                                            </a>
+                                        </li>
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="#">
+                                                <i class="fa-regular fa-circle-question"></i>
+                                                Ajuda & Suporte
+                                            </a>
+                                        </li>
+                                        <hr />
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="logout.php">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                Sair
+                                            </a>
+                                        </li>
+                                    <?php else: ?>
+                                        <li class="profile-dropdown-list-item">
+                                            <a href="login.php">
+                                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                                Login
+                                            </a>
+                                        </li>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </nav>
+      <div class="section__container header__container" id="home">
+        <div class="header__content">
+          <h1>Contato</h1>
+        </div>
+      </div>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <form action="https://api.web3forms.com/submit" method="post">
+                <input type="hidden" name="access_key" value="ae3292d2-1354-41d1-a01f-99b58a9a2559">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Digite seu texto" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Digite o Email" required>
+                </div>
+
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+              <!--  <div class="form-group">
+                    <input type="text" placeholder="Assunto">
+                </div>-->
+                <div class="form-group">
+                    <textarea placeholder="Mensagem"></textarea>
+                </div>
+                <div class="form-group">
+                    <button>Enviar Mensagem</button>
+            </form>
+            </div>
+       
+    
+        <footer class="footer">
+                        <div class="section__container footer__container">
+                            <div class="footer__col">
+                                <div class="logo footer__logo">
+                                    <a href="#"><img src="assets/img/8.png" alt="Future Tech Logo" /></a>
+                                </div>
+                                <p class="section__description">Com um rico legado que abrange 3 anos, o nosso compromisso com a excelência na criação de websites é inabalável.</p>
+                                <ul class="footer__socials">
+                                    <li><a href="#"><i class="ri-facebook-fill" aria-label="Facebook"></i></a></li>
+                                    <li><a href="#"><i class="ri-google-fill" aria-label="Google"></i></a></li>
+                                    <li><a href="#"><i class="ri-instagram-line" aria-label="Instagram"></i></a></li>
+                                    <li><a href="#"><i class="ri-youtube-line" aria-label="YouTube"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="footer__col">
+                                <h4>Nossos serviços</h4>
+                                <ul class="footer__links">
+                                    <li><a href="#">Site institucional</a></li>
+                                    <li><a href="#">Site de ecommerce</a></li>
+                                    <li><a href="#">Site de portfólio</a></li>
+                                    <li><a href="#">Landing Page</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer__col">
+                                <h4>Informações de contato</h4>
+                                <ul class="footer__links">
+                                    <li>
+                                        <p>Experimente a magia de um site rejuvenescido enquanto cuidamos do seu projeto com cuidado preciso.</p>
+                                    </li>
+                                    <li>
+                                        <p>Telefone: <span>+xx xxxxx-xxxx</span></p>
+                                    </li>
+                                    <li>
+                                        <p>Email: <span>gfuture.ti123@gmail.com</span></p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </footer>
+                    <div class="footer__bar">
+                        Copyright © 2024 Future Technology. Todos os direitos reservados.
+                    </div>
+ </div>
+                   
+                </body>
+                 <script src="https://unpkg.com/scrollreveal"></script>
+                    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+                    <script src="assets/js/main.js"></script>
+                    <script>
+                    
+                    
+                    let profileDropdownList = document.querySelector(".profile-dropdown-list");
+                    let btn = document.querySelector(".profile-dropdown-btn");
+
+                    const toggle = () => profileDropdownList.classList.toggle("active");
+
+                    window.addEventListener("click", function (e) {
+                        if (!btn.contains(e.target)) {
+                            profileDropdownList.classList.remove("active");
+                        }
+                    });
+
+                    </script>
+                </html>
